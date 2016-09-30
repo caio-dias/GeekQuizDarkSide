@@ -2,9 +2,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.com.senac.caiodiasaula2.geekquizdarkside.MainActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+
+    <item android:id="@+id/Evento"
+        android:title="Entrar em um evento"
         app:showAsAction="never" />
+
+    <item android:id="@+id/ListaGrupos"
+        android:title="Grupos"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/CriarGrupo"
+        android:title="Criar Grupo"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/MeuGrupo"
+        android:title="Meu Grupo"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/SobreNos"
+        android:title="Sobre Nós"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/Sair"
+        android:title="Sair"
+        app:showAsAction="never" />
+
 </menu>

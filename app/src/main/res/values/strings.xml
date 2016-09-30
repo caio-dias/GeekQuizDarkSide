@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">GeekQuizDarkSide</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_evento">EventoActivity</string>
+    <string name="title_activity_listagem_grupos">ListagemGrupos</string>
+    <string name="title_activity_meu_grupo">MeuGrupo</string>
+    <string name="title_activity_novo_grupo">NovoGrupo</string>
+    <string name="title_activity_resultado_final">ResultadoFinal</string>
+    <string name="title_activity_sobre_nos">SobreNos</string>
+    <string name="title_activity_jogo">Jogo</string>
+    <string name="title_activity_aguarda_resultado">AguardaResultado</string>
+    <string name="title_activity_login">Login</string>
 </resources>

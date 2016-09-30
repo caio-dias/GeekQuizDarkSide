@@ -9,13 +9,45 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".EventoActivity"
+            android:label="Eventos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListagemGrupos"
+            android:label="Todos os grupos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MeuGrupo"
+            android:label="Grupo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NovoGrupo"
+            android:label="Novo Grupo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ResultadoFinal"
+            android:label="Resultado Final"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SobreNos"
+            android:label="Sobre nós"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Aquecimento" />
+        <activity
+            android:name=".Jogo"
+            android:label="GeekQuiz"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AguardaResultado"
+            android:label="Aguardando Resultado"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login"
+            android:label="GeekQuiz"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>
     </application>
