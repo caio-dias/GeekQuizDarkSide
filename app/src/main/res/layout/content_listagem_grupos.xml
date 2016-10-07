@@ -13,4 +13,55 @@
     tools:context="br.com.senac.caiodiasaula2.geekquizdarkside.ListagemGrupos"
     tools:showIn="@layout/activity_listagem_grupos">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GRUPOS"
+        android:textSize="40dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:textAlignment="center"/>
+
+
+    <RadioGroup
+        android:id="@+id/grupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Grupo 1"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Grupo 2"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Grupo 3"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Grupo 4"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrar no Grupo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criar Grupo"
+            android:textSize="20dp"
+            />
+
+
+
+    </RadioGroup>
+
 </LinearLayout>

@@ -12,5 +12,51 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="br.com.senac.caiodiasaula2.geekquizdarkside.SobreNos"
     tools:showIn="@layout/activity_sobre_nos">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INTEGRANTES DO GRUPO"
+        android:textSize="30dp"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bianca Monteiro"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caio Dias"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gabriel Gonçalves"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="João Paulo de Almeida"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reginaldo Carvalho"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"/>
+
 
 </LinearLayout>
