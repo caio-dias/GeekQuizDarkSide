@@ -13,4 +13,70 @@
     tools:context="br.com.senac.caiodiasaula2.geekquizdarkside.NovoGrupo"
     tools:showIn="@layout/activity_novo_grupo">
 
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Novo Grupo"
+        android:paddingBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/nomeDoGrupo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Nome do grupo"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/statusDoGrupo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status do grupo"
+        android:paddingBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/grupoStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RadioButton
+            android:id="@+id/statusAberto"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Aberto"/>
+
+        <RadioButton
+            android:id="@+id/statusFechado"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Fechado"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnCriaGrupo"
+            android:layout_marginTop="40dp"
+            android:background="#10d7cc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Criar Grupo"/>
+    </LinearLayout>
+
+
 </LinearLayout>
