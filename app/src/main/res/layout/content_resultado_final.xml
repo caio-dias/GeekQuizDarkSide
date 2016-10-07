@@ -47,7 +47,7 @@
         android:text="Resumo do desempenho do seu Grupo..." />
 
     <TextView
-        android:id="@+id/resumodogrupo_resultado_final"
+        android:id="@+id/botao_sair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
