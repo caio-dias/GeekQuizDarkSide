@@ -22,37 +22,83 @@
         android:text="Resultado Final" />
 
     <TextView
+        android:id="@+id/primeiro_colocado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:paddingTop="20dp"
-        android:text="XPTO XPTO XPTO" />
+        android:textColor="#3c3a38"
+        android:text="1° Colocado" />
 
     <TextView
-        android:id="@+id/seu_grupo_resultado_final"
+        android:id="@+id/segundo_colocado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#000000"
-        android:paddingTop="40dp"
-        android:text="SEU GRUPO" />
+        android:textSize="18sp"
+        android:paddingTop="20dp"
+        android:textColor="#3c3a38"
+        android:text="2º Colocado" />
+
+    <TextView
+        android:id="@+id/terceiro_colocado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingTop="20dp"
+        android:textColor="#3c3a38"
+        android:text="3º Colocado" />
+
+    <TextView
+        android:id="@+id/quarto_colocado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingTop="20dp"
+        android:textColor="#3c3a38"
+        android:text="4º Colocado" />
+
 
 
     <TextView
         android:id="@+id/resumodogrupo_resultado_final"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#000000"
-        android:paddingTop="30dp"
+        android:textSize="18sp"
+        android:paddingTop="50dp"
+        android:textColor="#3c3a38"
         android:text="Resumo do desempenho do seu Grupo..." />
 
     <TextView
-        android:id="@+id/botao_sair"
+        android:id="@+id/resumo_grupo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:textColor="#000000"
         android:paddingTop="20dp"
-        android:text="Sair" />
+        android:textColor="#3c3a38"
+        android:text="Seu grupo foi assim, assim, assado :)" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="130dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/botao_sair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="14sp"
+            android:textColor="#3c3a38"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Sair" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
+
