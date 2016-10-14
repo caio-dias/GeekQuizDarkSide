@@ -17,7 +17,7 @@
 
 
     <ImageView
-        android:src="@android:drawable/ic_menu_info_details"
+        android:src="@drawable/logogeekquiz"
         android:id="@+id/imgLogo"
         android:layout_width="150dp"
         android:layout_height="150dp" />
