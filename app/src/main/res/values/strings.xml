@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GeekQuizDarkSide</string>
+    <string name="app_name">Geek Quiz Dark Side</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_evento">EventoActivity</string>
     <string name="title_activity_listagem_grupos">ListagemGrupos</string>
