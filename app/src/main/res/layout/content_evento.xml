@@ -32,6 +32,7 @@
             android:layout_width="150dp"
             android:hint="Codigo do Evento"
             android:layout_height="wrap_content" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:orientation="vertical"
@@ -62,6 +63,7 @@
 
 
         <TextView
+            android:id="@+id/qrcode"
             android:textColor="@color/colorPrimary"
             android:text="Ler codigo via QRCode"
             android:layout_width="wrap_content"
