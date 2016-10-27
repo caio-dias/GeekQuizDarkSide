@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:gravity="center"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,31 +14,25 @@
     tools:context="br.com.senac.caiodiasaula2.geekquizdarkside.EventoActivity"
     tools:showIn="@layout/activity_evento">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
     <TextView
         android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:text="Evento"
         android:textColor="#3c3a38"
-        android:textSize="30dp"
-        android:layout_height="100dp" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical" >
-
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+    </LinearLayout>
 
         <EditText
             android:id="@+id/evento"
             android:layout_width="150dp"
             android:hint="Codigo do Evento"
             android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="15dp"
-            android:layout_height="wrap_content">
 
 
             <Button
@@ -53,25 +48,20 @@
             <ImageView
                 android:src="@android:drawable/ic_menu_camera"
                 android:layout_width="wrap_content"
-                android:tint="#000000"
+                android:tint="#3c3a38"
                 android:paddingLeft="25dp"
                 android:paddingTop="15dp"
                 android:layout_height="wrap_content" />
 
-        </LinearLayout>
-
-
-
-        <TextView
+        <Button
             android:id="@+id/qrcode"
             android:textColor="@color/colorPrimary"
             android:text="Ler codigo via QRCode"
             android:layout_width="wrap_content"
-            android:paddingTop="50dp"
-            android:layout_height="wrap_content" />
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            />
 
 
     </LinearLayout>
 
-
-</LinearLayout>

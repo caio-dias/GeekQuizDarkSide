@@ -13,15 +13,22 @@
     tools:context="br.com.senac.caiodiasaula2.geekquizdarkside.ListagemGrupos"
     tools:showIn="@layout/activity_listagem_grupos">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GRUPOS"
-        android:textSize="40dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#3c3a38"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:textAlignment="center"/>
-
+</LinearLayout>
 
     <RadioGroup
         android:id="@+id/grupo"
@@ -47,21 +54,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Grupo 4"/>
+    </RadioGroup>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:padding="30dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Entrar no Grupo"/>
+            android:text="Entrar no Grupo"
+            android:drawableLeft="@drawable/entrar_grupo"
+            android:drawableTint="#10d7cc"
+            android:padding="5dp"
+            android:drawablePadding="5dp"/>
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Criar Grupo"
-            android:textSize="20dp"
-            />
+            android:drawableTint="#10d7cc"
+            android:padding="5dp"
+            android:drawableLeft="@drawable/lapis"
+            android:drawablePadding="5dp"/>
+
+</LinearLayout>
 
 
 
-    </RadioGroup>
 
 </LinearLayout>
