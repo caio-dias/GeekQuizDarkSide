@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/botaoLogin"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:background="#d8d8d8"
         android:textColor="#3c3a38"
         android:text="Login" />
