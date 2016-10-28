@@ -1,15 +1,21 @@
 package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class Login extends AppCompatActivity {
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdService;
+
+
+public class Login extends AppCompatActivity  {
     public Button botaoLogin;
 
     @Override
@@ -29,6 +35,6 @@ public class Login extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
-    }
 
+    }
 }

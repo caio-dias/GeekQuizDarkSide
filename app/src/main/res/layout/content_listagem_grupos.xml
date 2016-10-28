@@ -67,7 +67,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Entrar no Grupo"
-            android:drawableLeft="@drawable/entrar_grupo"
             android:drawableTint="#10d7cc"
             android:padding="5dp"
             android:drawablePadding="5dp"/>
@@ -78,7 +77,6 @@
             android:text="Criar Grupo"
             android:drawableTint="#10d7cc"
             android:padding="5dp"
-            android:drawableLeft="@drawable/lapis"
             android:drawablePadding="5dp"/>
 
 </LinearLayout>
