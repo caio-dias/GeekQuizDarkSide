@@ -60,15 +60,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="30dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Entrar no Grupo"
+            android:drawableLeft="@drawable/entrargrupo"
             android:drawableTint="#10d7cc"
-            android:padding="5dp"
+            android:padding="10dp"
             android:drawablePadding="5dp"/>
 
         <Button
@@ -76,7 +77,8 @@
             android:layout_height="wrap_content"
             android:text="Criar Grupo"
             android:drawableTint="#10d7cc"
-            android:padding="5dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/criargrupo"
             android:drawablePadding="5dp"/>
 
 </LinearLayout>
