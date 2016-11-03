@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "338975286861",
+    "firebase_url": "https://darksidepn.firebaseio.com",
+    "project_id": "darksidepn",
+    "storage_bucket": "darksidepn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338975286861:android:f3f3552fad15bb96",
+        "android_client_info": {
+          "package_name": "br.com.senac.caiodiasaula2.geekquizdarkside"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338975286861-mr3rauf7lcbptu9o895n3kd4ju6iapqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbZLdDampUuemELi1Bric9EQfiQqatTyE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
