@@ -49,9 +49,14 @@ public class Login extends AppCompatActivity  {
         botaoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            LoginUsuario lg  = new LoginUsuario();
-                lg.doInBackground();
-                lg.execute();
+           // LoginUsuario lg  = new LoginUsuario();
+                //lg.doInBackground();
+               // lg.execute();
+
+
+                Intent intent = new Intent(Login.this, EventoActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
 
             }
         });
