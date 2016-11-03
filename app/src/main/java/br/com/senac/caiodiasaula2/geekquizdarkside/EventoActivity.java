@@ -13,12 +13,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import br.com.pi.pi4.GroupSelectionActivity;
 
 public class EventoActivity extends AppCompatActivity {
     private TextView qrcode;
     private EditText evento;
+    private Button btnEntrarEvento;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +33,7 @@ public class EventoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         qrcode = (TextView)findViewById(R.id.qrcode);
         evento = (EditText) findViewById(R.id.evento);
-
+        btnEntrarEvento = (Button) findViewById(R.id.btnEntrarEvento);
 
         qrcode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,12 +50,23 @@ public class EventoActivity extends AppCompatActivity {
             }
         });
 
+
+        btnEntrarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(EventoActivity.this, GroupSelectionActivity.class);
+                Bundle b = new Bundle();
+                b.putString("evento", "7"); // segundo parametro é o identificador do evento (variavel que trata o identificador e transforma ele no codEvento)
+                b.putString("participanteId", "258"); //segundo parametro é o id do participante que está logado
+                b.putString("proximaTela", Aquecimento.class.getName());
+                i.putExtras(b); //Put your id to your next Intent
+                startActivity(i);
+            }
+        });
+
         Intent intent = getIntent();
         String resultadoQR = intent.getStringExtra("resultadoQRCODE");
         evento.setText(resultadoQR);
-
-
-
     }
 
     @Override
