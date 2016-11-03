@@ -26,10 +26,11 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'me.dm7.barcodescanner:zxing:1.9'
     compile 'com.google.firebase:firebase-messaging:9.0.0'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
-    compile 'com.google.code.gson:gson:2.2.+'
     compile 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

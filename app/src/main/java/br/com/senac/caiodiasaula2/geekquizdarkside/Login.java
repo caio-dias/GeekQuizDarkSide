@@ -31,6 +31,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 
 public class Login extends AppCompatActivity  {
     public Button botaoLogin;
@@ -50,9 +55,8 @@ public class Login extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
             LoginUsuario lg  = new LoginUsuario();
+                lg.onPreExecute();
                 lg.doInBackground();
-                lg.execute();
-
             }
         });
 
@@ -69,71 +73,52 @@ public class Login extends AppCompatActivity  {
             Email = (TextView)findViewById(R.id.email);
             Senha = (TextView)findViewById(R.id.senha);
 
-            try{
-                 Usuario = URLEncoder.encode(Email.getText().toString(), "UTF-8");
-                 SenhaUsuario = URLEncoder.encode(Senha.getText().toString(), "UTF-8");
-            }catch (java.io.UnsupportedEncodingException e) {
 
-            }
+            Usuario = Email.getText().toString();
+            SenhaUsuario = Senha.getText().toString();
 
         }
 
         protected String doInBackground(Void... params) {
             try
             {
-                URL url = new URL("http://darkdev.jelasticlw.com.br/srv/rest/Usuario/Login");
-                HttpURLConnection con =
-                        (HttpURLConnection) url.openConnection();
-                con.setDoOutput(true);
+                Retrofit retrofit = Rest.getInstance().get();
+                RestEndPointDarkSide service = retrofit.create(RestEndPointDarkSide.class);
+                Call<UsuarioStatus> call;
+                final LoginExtract login = new LoginExtract();
+                login.setUsuario(Usuario);
+                login.setSenha(SenhaUsuario);
+                call = service.getUser(login);
 
-                try{
-                    OutputStreamWriter out =
-                            new OutputStreamWriter(con.getOutputStream());
+                call.enqueue(new Callback<UsuarioStatus>() {
+                    @Override
+                    public void onResponse(Call<UsuarioStatus> call, Response<UsuarioStatus> response) {
+                        if(response.isSuccessful()){
+                            final UsuarioStatus us = response.body();
 
-                    out.write("usuario=" + Usuario);
-                    out.write("senha=" + SenhaUsuario);
-                    out.close();
-                }catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
+                            Intent intent = new Intent(Login.this, EventoActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                        }else{
+                            Toast
+                                    .makeText(
+                                            Login.this,
+                                            "Nao foi possivel logar",
+                                            Toast.LENGTH_LONG)
+                                    .show();
 
-                InputStream in = con.getInputStream();
+                        }
+                    }
 
-                BufferedReader streamReader = new BufferedReader(
-                        new InputStreamReader(in, "UTF-8"));
-
-                StringBuilder responseStrBuilder = new StringBuilder();
-                String inputStr;
-
-                while ((inputStr = streamReader.readLine()) != null)
-                    responseStrBuilder.append(inputStr);
-
-                String result = responseStrBuilder.toString();
-
-                try{
-
-                    JSONArray jsonArray = new JSONArray(result);
-                    if (jsonArray.length() == 3)
-                    {
-                        Intent intent = new Intent(Login.this, EventoActivity.class);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                    }else{
+                    @Override
+                    public void onFailure(Call<UsuarioStatus> call, Throwable t) {
 
                     }
-                }catch (Exception e)
-                {
-                    Toast toast = Toast.makeText(Login.this,
-                            "Sua autenticaçao falhou. Certifique-se que seu usuário e senha estejam corretos"
-                            , Toast.LENGTH_LONG);
-                    toast.show();
-                }
+                });
 
-            }catch (java.net.MalformedURLException e){
 
-            }catch (java.io.IOException e) {
-
+            }catch(Exception e) {
+                e.printStackTrace();
             }
 
             return null;
