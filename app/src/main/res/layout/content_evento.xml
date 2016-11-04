@@ -45,19 +45,15 @@
                 android:text="Entrar" />
 
 
-            <ImageView
-                android:src="@android:drawable/ic_menu_camera"
-                android:layout_width="wrap_content"
-                android:tint="#3c3a38"
-                android:paddingTop="15dp"
-                android:layout_height="wrap_content" />
-
         <Button
             android:id="@+id/qrcode"
             android:text="Ler codigo via QRCode"
             android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/camera"
+            android:drawableTint="#10d7cc"
+            android:width="230dp"
             android:drawablePadding="5dp"
             />
 

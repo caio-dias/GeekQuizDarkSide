@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#3c3a38"
+        android:textSize="20dp"
         android:text="As regras serão renderizadas aqui, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget aliquam nulla. Mauris diam magna, auctor nec scelerisque sit amet, aliquam dignissim justo. Mauris mollis sagittis ante vel scelerisque. Quisque malesuada velit vel laoreet volutpat. Suspendisse et efficitur dolor. Pellentesque vitae auctor libero. Nulla non suscipit eros. Curabitur ullamcorper magna id fermentum iaculis. Sed at tempus nisi, non semper sapien. Vivamus accumsan ut ante vitae commodo. Aenean eget tempus lectus. Quisque ultrices fringilla justo, vel semper erat pellentesque non. Curabitur metus magna, egestas at sapien et, luctus venenatis elit. Mauris erat metus, pulvinar in nunc et, porta posuere mi."
         android:layout_marginTop="20dp"
         />
