@@ -73,7 +73,6 @@ public class Login extends AppCompatActivity  {
             Email = (TextView)findViewById(R.id.email);
             Senha = (TextView)findViewById(R.id.senha);
 
-
             Usuario = Email.getText().toString();
             SenhaUsuario = Senha.getText().toString();
 

@@ -79,11 +79,11 @@ public class EventoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String resultadoQR = intent.getStringExtra("resultadoQRCODE");
 
-        if (!resultadoQR.isEmpty()){
+        /*if (!resultadoQR.isEmpty()){
             qrcode = (TextView)findViewById(R.id.qrcode);
             qrcode.setText(resultadoQR);
 
-        }
+        }*/
 
         evento.setText(resultadoQR);
     }
