@@ -20,7 +20,7 @@ public class Rest {
     private Retrofit retrofit;
     public static Rest getInstance() { return instance; };
 
-    public static final String BASE_URL = "http://darkdev.jelasticlw.com.br/srv/rest/";
+    public static final String BASE_URL = "http://192.168.0.11:8080/pi/rest/";
 
     public Rest(){
 
