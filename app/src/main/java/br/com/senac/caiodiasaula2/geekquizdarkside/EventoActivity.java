@@ -2,6 +2,7 @@ package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -137,7 +138,7 @@ public class EventoActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             CodEvento = (TextView)findViewById(R.id.evento);
-            idEvento = CodEvento.getText().toString();
+            idEvento = CodEvento.getText().toString().toUpperCase();
         }
 
         protected String doInBackground(Void... params) {
@@ -151,6 +152,8 @@ public class EventoActivity extends AppCompatActivity {
 
                 call = service.getEvento(evento.getEventoId());
 
+                final SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+
                 call.enqueue(new Callback<EventoStatus>() {
                     @Override
                     public void onResponse(Call<EventoStatus> call, Response<EventoStatus> response) {
@@ -160,7 +163,7 @@ public class EventoActivity extends AppCompatActivity {
                             Intent i = new Intent(EventoActivity.this, GroupSelectionActivity.class);
                             Bundle b = new Bundle();
                             b.putString("evento", us.getIdEvento().toString()); // segundo parametro é o identificador do evento (variavel que trata o identificador e transforma ele no codEvento)
-                            b.putString("participanteId", "1"); //segundo parametro é o id do participante que está logado
+                            b.putString("participanteId", pref.getString("codParticipante", "")); //segundo parametro é o id do participante que está logado
                             b.putString("proximaTela", Aquecimento.class.getName());
                             i.putExtras(b); //Put your id to your next Intent
                             startActivity(i);
@@ -171,7 +174,7 @@ public class EventoActivity extends AppCompatActivity {
                             Toast
                                     .makeText(
                                             EventoActivity.this,
-                                            "Nao foi possivel logar",
+                                            "Nao foi encontrar este grupo " + idEvento.toString(),
                                             Toast.LENGTH_LONG)
                                     .show();
 
