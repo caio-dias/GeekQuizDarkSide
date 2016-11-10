@@ -37,6 +37,4 @@ public class Rest {
 
     public Retrofit get() { return retrofit; };
 
-
-
 }
