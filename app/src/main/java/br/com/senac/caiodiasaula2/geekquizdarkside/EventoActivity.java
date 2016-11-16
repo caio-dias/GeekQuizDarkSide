@@ -174,7 +174,7 @@ public class EventoActivity extends AppCompatActivity {
                             Toast
                                     .makeText(
                                             EventoActivity.this,
-                                            "Nao foi encontrar este grupo " + idEvento.toString(),
+                                            "Nao foi  possível encontrar este evento " + idEvento.toString(),
                                             Toast.LENGTH_LONG)
                                     .show();
 
