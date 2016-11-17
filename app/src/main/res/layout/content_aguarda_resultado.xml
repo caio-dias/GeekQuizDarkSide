@@ -31,7 +31,6 @@
         android:textColor="#3c3a38"
         android:padding="8dp"
         android:text="Aguarde todos os participantes terminarem de jogar, é rapidinho... :)"
-
         />
 
     <ImageView

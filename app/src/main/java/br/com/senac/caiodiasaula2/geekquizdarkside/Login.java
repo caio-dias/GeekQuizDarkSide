@@ -1,6 +1,7 @@
 package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,7 +49,6 @@ public class Login extends AppCompatActivity  {
         setContentView(R.layout.activity_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         botaoLogin = (Button) findViewById(R.id.botaoLogin);
 
         botaoLogin.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,6 @@ public class Login extends AppCompatActivity  {
             Email = (TextView)findViewById(R.id.email);
             Senha = (TextView)findViewById(R.id.senha);
 
-
             Usuario = Email.getText().toString();
             SenhaUsuario = Senha.getText().toString();
 
@@ -95,6 +94,12 @@ public class Login extends AppCompatActivity  {
                     public void onResponse(Call<UsuarioStatus> call, Response<UsuarioStatus> response) {
                         if(response.isSuccessful()){
                             final UsuarioStatus us = response.body();
+
+                            SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("codParticipante", us.getCodParticipante().toString());
+                            editor.apply();
 
                             Intent intent = new Intent(Login.this, EventoActivity.class);
                             startActivity(intent);

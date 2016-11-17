@@ -20,7 +20,7 @@ public class Rest {
     private Retrofit retrofit;
     public static Rest getInstance() { return instance; };
 
-    public static final String BASE_URL = "http://darkdev.jelasticlw.com.br/srv/rest/";
+    public static final String BASE_URL = "http://tsitomcat2.azurewebsites.net/geekquiz2/rest/";
 
     public Rest(){
 
@@ -36,7 +36,5 @@ public class Rest {
     }
 
     public Retrofit get() { return retrofit; };
-
-
 
 }

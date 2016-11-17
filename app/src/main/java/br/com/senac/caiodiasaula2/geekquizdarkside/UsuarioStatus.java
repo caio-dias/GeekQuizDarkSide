@@ -32,4 +32,20 @@ public class UsuarioStatus {
     public void setNome(String nome) {
         nmParticipante = nome;
     }
+
+    public Integer getCodParticipante() {
+        return codParticipante;
+    }
+
+    public void setCodParticipante(Integer codParticipante) {
+        this.codParticipante = codParticipante;
+    }
+
+    public String getNmParticipante() {
+        return nmParticipante;
+    }
+
+    public void setNmParticipante(String nmParticipante) {
+        this.nmParticipante = nmParticipante;
+    }
 }

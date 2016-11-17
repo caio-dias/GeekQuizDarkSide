@@ -14,10 +14,12 @@
     tools:showIn="@layout/activity_resultado_final">
 
     <TextView
+        android:layout_gravity="center"
         android:id="@+id/resultado_final"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="24dp"
+        android:textStyle="bold"
         android:textColor="#000000"
         android:text="Resultado Final" />
 
@@ -25,10 +27,13 @@
         android:id="@+id/primeiro_colocado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:paddingTop="20dp"
         android:textColor="#3c3a38"
-        android:text="1° Colocado" />
+        android:text="1° Colocado"
+        android:drawableTint="#10d7cc"
+        android:drawablePadding="10dp"
+        android:drawableRight="@drawable/ganhou"/>
 
     <TextView
         android:id="@+id/segundo_colocado"
@@ -63,16 +68,19 @@
         android:id="@+id/resumodogrupo_resultado_final"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:paddingTop="50dp"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:paddingTop="70dp"
         android:textColor="#3c3a38"
-        android:text="Resumo do desempenho do seu Grupo..." />
+        android:textStyle="bold"
+        android:text="Resumo do desempenho do seu Grupo" />
 
     <TextView
         android:id="@+id/resumo_grupo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:textSize="14dp"
         android:paddingTop="20dp"
         android:textColor="#3c3a38"
         android:text="Seu grupo foi assim, assim, assado :)" />

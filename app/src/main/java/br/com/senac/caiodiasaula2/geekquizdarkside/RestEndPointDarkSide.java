@@ -18,6 +18,9 @@ public interface RestEndPointDarkSide {
     @POST("Usuario/Login")
     Call<UsuarioStatus> getUser(@Body LoginExtract login);
 
+    @GET("Evento/{eventoId}")
+    Call<EventoStatus> getEvento(@Path("eventoId") String eventoId);
+
 
 
 }
