@@ -21,6 +21,11 @@ public interface RestEndPointDarkSide {
     @GET("Evento/{eventoId}")
     Call<EventoStatus> getEvento(@Path("eventoId") String eventoId);
 
+    @GET("Evento/{eventoId}")
+    Call<EventoStatus> getEventoLiberado(@Path("eventoId") String eventoId);
+
+
+
 
 
 }
