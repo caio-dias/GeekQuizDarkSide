@@ -42,14 +42,15 @@
 - As questões terão tempo máximo de XXXX para ser respondidas.
 - Enquanto todos os grupos, não finalizarem o envio de suas respostas, você ficará aguardando em uma tela de espera, para visualizar o resultado final.
 - O critério de desempate é: Quem respondeu as questões em menos tempo, será considerado vencedor, dentre os que empataram."
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btnComecar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnComecar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
 
 
 </LinearLayout>
