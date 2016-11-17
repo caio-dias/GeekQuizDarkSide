@@ -16,18 +16,6 @@
             android:label="Eventos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ListagemGrupos"
-            android:label="Todos os grupos"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MeuGrupo"
-            android:label="Grupo"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".NovoGrupo"
-            android:label="Novo Grupo"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ResultadoFinal"
             android:label="Resultado Final"
             android:theme="@style/AppTheme.NoActionBar" />
