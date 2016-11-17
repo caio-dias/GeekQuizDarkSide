@@ -27,15 +27,30 @@
         android:textColor="#3c3a38"
         android:layout_marginTop="20dp"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/regras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#3c3a38"
         android:textSize="20dp"
-        android:text="As regras serão renderizadas aqui, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget aliquam nulla. Mauris diam magna, auctor nec scelerisque sit amet, aliquam dignissim justo. Mauris mollis sagittis ante vel scelerisque. Quisque malesuada velit vel laoreet volutpat. Suspendisse et efficitur dolor. Pellentesque vitae auctor libero. Nulla non suscipit eros. Curabitur ullamcorper magna id fermentum iaculis. Sed at tempus nisi, non semper sapien. Vivamus accumsan ut ante vitae commodo. Aenean eget tempus lectus. Quisque ultrices fringilla justo, vel semper erat pellentesque non. Curabitur metus magna, egestas at sapien et, luctus venenatis elit. Mauris erat metus, pulvinar in nunc et, porta posuere mi."
-        android:layout_marginTop="20dp"
-        />
+        android:text="- Ganha quem fizer mais pontos.
+- Enquanto um jogador, estiver respondendo uma pergunta, da qual você ja respondeu, você irá ficar aguardando o outro responder, para poder passar para a próxima questão.
+- As questões terão tempo máximo de XXXX para ser respondidas.
+- Enquanto todos os grupos, não finalizarem o envio de suas respostas, você ficará aguardando em uma tela de espera, para visualizar o resultado final.
+- O critério de desempate é: Quem respondeu as questões em menos tempo, será considerado vencedor, dentre os que empataram."
+        android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btnComecar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+
 
 
 </LinearLayout>

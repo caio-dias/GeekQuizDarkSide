@@ -22,6 +22,9 @@
         android:layout_marginBottom="20dp"
         android:textColor="#3c3a38"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,13 +34,11 @@
         android:textSize="20dp"
         android:textColor="#3c3a38"/>
 
-
     <ImageView
         android:layout_marginBottom="20dp"
         android:src="@drawable/bianca"
         android:layout_width="150dp"
         android:layout_height="150dp" />
-
 
     <TextView
         android:layout_marginBottom="10dp"
@@ -53,7 +54,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp" />
 
-
     <TextView
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
@@ -62,14 +62,11 @@
         android:textSize="20dp"
         android:textColor="#3c3a38"/>
 
-
     <ImageView
         android:layout_marginBottom="20dp"
         android:src="@drawable/gabriel"
         android:layout_width="150dp"
         android:layout_height="150dp" />
-
-
 
     <TextView
         android:layout_marginBottom="20dp"
@@ -79,15 +76,12 @@
         android:textSize="20dp"
         android:textColor="#3c3a38"/>
 
-
     <ImageView
         android:layout_marginBottom="20dp"
         android:src="@drawable/jhonny"
         android:layout_width="150dp"
         android:layout_height="150dp" />
 
-
-    
 
     <TextView
         android:layout_marginBottom="20dp"
@@ -97,12 +91,12 @@
         android:textSize="20dp"
         android:textColor="#3c3a38"/>
 
-
     <ImageView
         android:layout_marginBottom="10dp"
         android:src="@drawable/reginaldo"
         android:layout_width="150dp"
         android:layout_height="150dp" />
+
 
 
 </LinearLayout>
