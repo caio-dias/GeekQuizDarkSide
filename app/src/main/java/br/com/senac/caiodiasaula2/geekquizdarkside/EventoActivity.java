@@ -153,22 +153,24 @@ public class EventoActivity extends AppCompatActivity {
                 call = service.getEvento(evento.getEventoId());
 
                 final SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+                final SharedPreferences.Editor editor = pref.edit();
 
                 call.enqueue(new Callback<EventoStatus>() {
                     @Override
                     public void onResponse(Call<EventoStatus> call, Response<EventoStatus> response) {
                         if(response.isSuccessful()){
                             final EventoStatus us = response.body();
-
                             Intent i = new Intent(EventoActivity.this, GroupSelectionActivity.class);
                             Bundle b = new Bundle();
                             b.putString("evento", us.getIdEvento().toString()); // segundo parametro é o identificador do evento (variavel que trata o identificador e transforma ele no codEvento)
                             b.putString("participanteId", pref.getString("codParticipante", "")); //segundo parametro é o id do participante que está logado
                             b.putString("proximaTela", Aquecimento.class.getName());
+
+                            editor.putString("codEvento", us.getIdEvento().toString());
+                            editor.apply();
+
                             i.putExtras(b); //Put your id to your next Intent
                             startActivity(i);
-
-
                             overridePendingTransition(R.anim.right_in, R.anim.left_out);
                         }else{
                             Toast
