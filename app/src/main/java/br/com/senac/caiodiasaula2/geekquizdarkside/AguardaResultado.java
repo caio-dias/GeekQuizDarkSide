@@ -18,6 +18,4 @@ public class AguardaResultado extends AppCompatActivity {
 
     }
 
-
-
 }

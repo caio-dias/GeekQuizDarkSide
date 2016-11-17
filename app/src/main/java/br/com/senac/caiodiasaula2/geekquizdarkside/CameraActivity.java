@@ -34,7 +34,6 @@ public class CameraActivity extends AppCompatActivity {
                 Intent intent = new Intent(CameraActivity.this, EventoActivity.class);
                 intent.putExtra("resultadoQRCODE", result.getText().toString());
                 startActivity(intent);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 finish();
             }
         });

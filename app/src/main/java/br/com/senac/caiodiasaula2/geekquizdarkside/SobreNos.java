@@ -38,27 +38,22 @@ public class SobreNos extends AppCompatActivity {
         if (id == R.id.Evento) {
             Intent intent = new Intent(SobreNos.this, EventoActivity.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
         } else if (id == R.id.ListaGrupos) {
             Intent intent = new Intent(SobreNos.this, ListagemGrupos.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
         } else if (id == R.id.CriarGrupo) {
             Intent intent = new Intent(SobreNos.this, NovoGrupo.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
         } else if (id == R.id.MeuGrupo) {
             Intent intent = new Intent(SobreNos.this, MeuGrupo.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
         } else if (id == R.id.SobreNos) {
             Intent intent = new Intent(SobreNos.this, SobreNos.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
         }
 
