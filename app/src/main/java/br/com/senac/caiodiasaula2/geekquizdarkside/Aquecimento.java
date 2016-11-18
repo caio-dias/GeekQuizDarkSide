@@ -36,8 +36,6 @@ public class Aquecimento extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     public class AguardaJogoIniciar extends AsyncTask<Void, Void, String>
@@ -72,3 +70,4 @@ public class Aquecimento extends AppCompatActivity {
 
     }
 }
+

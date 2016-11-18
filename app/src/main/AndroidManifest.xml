@@ -23,7 +23,6 @@
             android:name=".SobreNos"
             android:label="Sobre nós"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Aquecimento" />
         <activity
             android:name=".Jogo"
             android:label="GeekQuiz"
