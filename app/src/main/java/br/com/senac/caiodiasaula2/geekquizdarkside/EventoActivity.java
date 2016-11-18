@@ -105,27 +105,7 @@ public class EventoActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.Evento) {
-            Intent intent = new Intent(EventoActivity.this, EventoActivity.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            return true;
-        } else if (id == R.id.ListaGrupos) {
-            Intent intent = new Intent(EventoActivity.this, ListagemGrupos.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            return true;
-        } else if (id == R.id.CriarGrupo) {
-            Intent intent = new Intent(EventoActivity.this, NovoGrupo.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            return true;
-        } else if (id == R.id.MeuGrupo) {
-            Intent intent = new Intent(EventoActivity.this, MeuGrupo.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            return true;
-        } else if (id == R.id.SobreNos) {
+        if (id == R.id.SobreNos) {
             Intent intent = new Intent(EventoActivity.this, SobreNos.class);
             startActivity(intent);
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
