@@ -16,13 +16,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/titulo_pergunta"/>
+        android:id="@+id/titulo_pergunta"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#3c3a38"
+        android:layout_marginBottom="20dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:id="@+id/container"
+            android:id="@+id/container_alternativas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">

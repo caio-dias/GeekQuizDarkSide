@@ -12,14 +12,9 @@ app:cardElevation="5dp">
     android:orientation="vertical"
     android:padding="6dp">
     <TextView
-        style="?android:textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/titulo"/>
-    <TextView
         style="?android:textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mensagem"/>
+        android:id="@+id/alternativa"/>
 </LinearLayout>
 </android.support.v7.widget.CardView>

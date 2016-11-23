@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class Jogo extends AppCompatActivity {
-    private ViewGroup mensagens;
+    private ViewGroup alternativas;
     private TextView titulo_pergunta;
 
     @Override
@@ -22,25 +22,22 @@ public class Jogo extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mensagens = (ViewGroup) findViewById(R.id.container);
+        alternativas = (ViewGroup) findViewById(R.id.container_alternativas);
         titulo_pergunta = (TextView) findViewById(R.id.titulo_pergunta);
 
         titulo_pergunta.setText("Titulo da pergunta");
 
-        addItem("Título 1", "Exemplo de mensagem.");
-        addItem("Título 2", "Exemplo de mensagem.");
-        addItem("Título 3", "Exemplo de mensagem.");
-        addItem("Título 4", "Exemplo de mensagem.");
-        addItem("Título 5", "Exemplo de mensagem.");
+        addItem("Alternativa 1");
+        addItem("Alternativa 2");
+        addItem("Alternativa 3");
+        addItem("Alternativa 4");
     }
 
-    private void addItem(String textoDoTitulo, String textoDaMensagem) {
-        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.card_message, mensagens, false);
-        TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
-        TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
-        titulo.setText(textoDoTitulo);
-        mensagem.setText(textoDaMensagem);
-        mensagens.addView(cardView);
+    private void addItem(String textoDaPergunta) {
+        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.card_message, alternativas, false);
+        TextView alternativa = (TextView) cardView.findViewById(R.id.alternativa);
+        alternativa.setText(textoDaPergunta);
+        alternativas.addView(cardView);
     }
 
 }
