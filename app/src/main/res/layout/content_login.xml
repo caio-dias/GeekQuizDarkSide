@@ -21,12 +21,10 @@
         android:layout_width="250dp"
         android:layout_height="250dp" />
 
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
 
         <ImageView
             android:src="@android:drawable/ic_dialog_email"
@@ -40,8 +38,6 @@
             android:hint="Email"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content" />
-
-
 
     </LinearLayout>
 
@@ -67,12 +63,15 @@
 
     </LinearLayout>
 
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/botaoLogin"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/styles_edit_btn"
-        android:text="Login" />
+        android:layout_marginTop="20dp"
+        android:background="#10d7cc"
+        android:textColor="#3c3a38"
+        android:width="230dp"
+        android:height="50dp"
+        android:text="Entrar"
+        android:textStyle="bold"/>
 </LinearLayout>
