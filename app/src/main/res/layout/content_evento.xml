@@ -44,6 +44,8 @@
             android:drawableLeft="@drawable/camera"
             android:drawableTint="#10d7cc"
             android:width="230dp"
+            android:paddingTop="3px"
+            android:paddingBottom="3px"
             android:drawablePadding="5dp"
             android:height="60dp"/>
 
@@ -55,6 +57,8 @@
             android:background="#10d7cc"
             android:textColor="#3c3a38"
             android:width="230dp"
+            android:paddingTop="3px"
+            android:paddingBottom="3px"
             android:height="50dp"
             android:textStyle="bold"
             android:text="Entrar" />
