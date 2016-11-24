@@ -30,7 +30,6 @@ public class CameraActivity extends AppCompatActivity {
         scannerView.setResultHandler(new ZXingScannerView.ResultHandler() {
             @Override
             public void handleResult(Result result) {
-                //mostra o que pegou no scanner em um toast
                 Intent intent = new Intent(CameraActivity.this, EventoActivity.class);
                 intent.putExtra("resultadoQRCODE", result.getText().toString());
                 startActivity(intent);
