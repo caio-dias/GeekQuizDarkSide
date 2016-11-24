@@ -1,5 +1,7 @@
 package br.com.senac.caiodiasaula2.geekquizdarkside;
 
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,12 +17,17 @@ public class Jogo extends AppCompatActivity {
     private ViewGroup alternativas;
     private TextView titulo_pergunta;
 
+    private String CodEvento;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+        CodEvento = pref.getString("codEvento", "");
 
         alternativas = (ViewGroup) findViewById(R.id.container_alternativas);
         titulo_pergunta = (TextView) findViewById(R.id.titulo_pergunta);
@@ -40,4 +47,11 @@ public class Jogo extends AppCompatActivity {
         alternativas.addView(cardView);
     }
 
+    public class GetQuestoes extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            return null;
+        }
+    }
 }
