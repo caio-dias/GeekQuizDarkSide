@@ -1,6 +1,7 @@
 package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -43,8 +44,22 @@ public class ResultadoFinal extends AppCompatActivity {
             Intent intent = new Intent(ResultadoFinal.this, SobreNos.class);
             startActivity(intent);
             return true;
-        }
+        }else if (id == R.id.Sair) {
+            SharedPreferences preferences2 = getSharedPreferences("Info", MODE_PRIVATE);
+            SharedPreferences.Editor editor2 = preferences2.edit();
+            editor2.putString("nome", null);
+            editor2.putString("codParticipante", null);
+            editor2.putString("Status", null);
+            editor2.putString("login", null);
+            editor2.putString("senha", null);
+            editor2.apply();
 
+            Intent intent = new Intent(ResultadoFinal.this, Login.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            finish();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

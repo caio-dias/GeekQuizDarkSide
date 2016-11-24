@@ -12,6 +12,6 @@
         app:showAsAction="never" />
 
     <item android:id="@+id/Sair"
-        android:title="Sair"
+        android:title="Sair do jogo"
         app:showAsAction="never" />
 </menu>
