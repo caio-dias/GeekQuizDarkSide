@@ -150,7 +150,8 @@ public class EventoActivity extends AppCompatActivity {
                             Bundle b = new Bundle();
                             b.putString("evento", us.getIdEvento().toString()); // segundo parametro é o identificador do evento (variavel que trata o identificador e transforma ele no codEvento)
                             b.putString("participanteId", pref.getString("codParticipante", "")); //segundo parametro é o id do participante que está logado
-                            b.putString("proximaTela", Aquecimento.class.getName());
+                            //b.putString("proximaTela", Aquecimento.class.getName());
+                            b.putString("proximaTela", Jogo.class.getName());
 
                             editor.putString("codEvento", us.getIdEvento().toString());
                             editor.apply();

@@ -16,5 +16,17 @@ app:cardElevation="5dp">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/alternativa"/>
+    <TextView
+        style="?android:textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:id="@+id/idAlternativa"/>
+    <TextView
+        style="?android:textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:id="@+id/correta"/>
 </LinearLayout>
 </android.support.v7.widget.CardView>

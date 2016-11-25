@@ -2,6 +2,8 @@ package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import org.json.JSONArray;
 
+import java.util.List;
+
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -29,8 +31,11 @@ public interface RestEndPointDarkSide {
     //@GET("Perguntas/codEvento/{idEvento}")
     //Call<DadosQuestao> getPergunta(@Path("idEvento") String idEvento);
 
-    @GET("Perguntas/alternativas/{codQuestao}")
-    Call<JSONArray>JsonAlternativa(@Path("codQuestao") String codQuestao);
+    @GET("Perguntas/codEvento/{codEvento}")
+    Call<List<QuestoesEvento>>JsonAlternativa(@Path("codEvento") String codEvento);
+
+    @GET("Perguntas/codEvento/{codEvento}/{codQuestao}")
+    Call<Questoes>JsonAlternativaQUESTOES(@Path("codEvento") String codEvento, @Path("codQuestao") String codQuestao);
 
 
 
