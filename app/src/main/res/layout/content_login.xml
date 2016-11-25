@@ -18,71 +18,71 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <ImageView
-        android:src="@drawable/logogeekquiz"
-        android:id="@+id/imgLogo"
-        android:layout_width="250dp"
-        android:layout_height="250dp" />
+            <ImageView
+                android:src="@drawable/logogeekquiz"
+                android:id="@+id/imgLogo"
+                android:layout_width="250dp"
+                android:layout_height="250dp" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:src="@android:drawable/ic_dialog_email"
-            android:tint="#10d7cc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@android:drawable/ic_dialog_email"
+                    android:tint="#10d7cc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="300dp"
-            android:hint="Email"
-            android:layout_marginLeft="10dp"
-            android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="300dp"
+                    android:hint="Email"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:src="@android:drawable/ic_lock_idle_lock"
-            android:layout_marginTop="10dp"
-            android:tint="#10d7cc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                <ImageView
+                    android:src="@android:drawable/ic_lock_idle_lock"
+                    android:layout_marginTop="10dp"
+                    android:tint="#10d7cc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-        <EditText
-            android:id="@+id/senha"
-            android:layout_width="300dp"
-            android:inputType="textPassword"
-            android:layout_marginLeft="10dp"
-            android:hint="Senha"
-            android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/senha"
+                    android:layout_width="300dp"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="10dp"
+                    android:hint="Senha"
+                    android:layout_height="wrap_content" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/botaoLogin"
-        android:layout_marginTop="20dp"
-        android:background="#10d7cc"
-        android:textColor="#3c3a38"
-        android:width="230dp"
-        android:height="50dp"
-        android:text="Entrar"
-        android:textStyle="bold"/>
-</LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/botaoLogin"
+                android:layout_marginTop="20dp"
+                android:background="#10d7cc"
+                android:textColor="#3c3a38"
+                android:width="230dp"
+                android:height="50dp"
+                android:text="Entrar"
+                android:textStyle="bold"/>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>
