@@ -110,8 +110,22 @@ public class EventoActivity extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
             return true;
-        }
+        } else if (id == R.id.Sair) {
+            SharedPreferences preferences2 = getSharedPreferences("Info", MODE_PRIVATE);
+            SharedPreferences.Editor editor2 = preferences2.edit();
+            editor2.putString("nome", null);
+            editor2.putString("codParticipante", null);
+            editor2.putString("Status", null);
+            editor2.putString("login", null);
+            editor2.putString("senha", null);
+            editor2.apply();
 
+            Intent intent = new Intent(EventoActivity.this, Login.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            finish();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
