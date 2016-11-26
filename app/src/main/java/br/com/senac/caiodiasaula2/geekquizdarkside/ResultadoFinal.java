@@ -2,6 +2,7 @@ package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class ResultadoFinal extends AppCompatActivity {
+    final MediaPlayer mp = MediaPlayer.create(this, R.raw.somfinal);
 
     private ViewGroup placar;
 
@@ -25,6 +27,7 @@ public class ResultadoFinal extends AppCompatActivity {
         setContentView(R.layout.activity_resultado_final);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mp.start();
 
         placar = (ViewGroup) findViewById(R.id.container_placar);
 
