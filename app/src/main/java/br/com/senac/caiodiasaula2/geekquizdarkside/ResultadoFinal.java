@@ -6,12 +6,18 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class ResultadoFinal extends AppCompatActivity {
+
+    private ViewGroup placar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,27 @@ public class ResultadoFinal extends AppCompatActivity {
         setContentView(R.layout.activity_resultado_final);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        placar = (ViewGroup) findViewById(R.id.container_placar);
+
+        addItem("1 - ", "Caio Dias", "Acertos: 2", "Tempo: 3 minutos");
+        addItem("2 - ", "Caio Silva", "Acertos: 1", "Tempo: 2 minutos");
+        addItem("3 - ", "Caio ", "Acertos: 0", "Tempo: 1 minutos");
+    }
+
+    private void addItem(String colocacao, String nome, String acertos, String tempo) {
+        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.card_placar, placar, false);
+        TextView colocado = (TextView) cardView.findViewById(R.id.colocacao);
+        TextView nomeJogador = (TextView) cardView.findViewById(R.id.nomeJogador);
+        TextView acerto = (TextView) cardView.findViewById(R.id.acertos);
+        TextView tempoJogo = (TextView) cardView.findViewById(R.id.tempo);
+
+        colocado.setText(colocacao);
+        nomeJogador.setText(nome);
+        acerto.setText(acertos);
+        tempoJogo.setText(tempo);
+
+        placar.addView(cardView);
     }
 
     @Override
