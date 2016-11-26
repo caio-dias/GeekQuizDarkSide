@@ -28,5 +28,11 @@ app:cardElevation="5dp">
         android:visibility="gone"
         android:layout_height="wrap_content"
         android:id="@+id/correta"/>
+    <TextView
+        style="?android:textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:id="@+id/codAlternativa"/>
 </LinearLayout>
 </android.support.v7.widget.CardView>
