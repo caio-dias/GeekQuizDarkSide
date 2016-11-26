@@ -2,6 +2,7 @@ package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,8 @@ import retrofit2.Retrofit;
 public class Aquecimento extends AppCompatActivity {
     AguardaJogoIniciar ag;
     private Button btn;
+    final MediaPlayer mp = MediaPlayer.create(this, R.raw.aquecimento);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,7 @@ public class Aquecimento extends AppCompatActivity {
                 ag.doInBackground();
             }
         });
+        mp.start();
 
     }
 

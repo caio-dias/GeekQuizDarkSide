@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -35,6 +36,8 @@ public class EventoActivity extends AppCompatActivity {
     private Integer codUsuario;
     private EntraEvento ev;
 
+    final MediaPlayer mp = MediaPlayer.create(this, R.raw.musicafundo);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,9 @@ public class EventoActivity extends AppCompatActivity {
         qrcode = (TextView)findViewById(R.id.qrcode);
         evento = (EditText) findViewById(R.id.evento);
         btnEntrarEvento = (Button) findViewById(R.id.btnEntrarEvento);
+      //  mp.create(this, R.raw.musicafundo);
+       // mp.setLooping(true);
+        mp.start();
 
         qrcode.setOnClickListener(new View.OnClickListener() {
             @Override
