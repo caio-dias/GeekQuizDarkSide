@@ -17,9 +17,28 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class ResultadoFinal extends AppCompatActivity {
-    final MediaPlayer mp = MediaPlayer.create(this, R.raw.somfinal);
+
 
     private ViewGroup placar;
+    MediaPlayer mp;
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mp.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mp.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.stop();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +46,7 @@ public class ResultadoFinal extends AppCompatActivity {
         setContentView(R.layout.activity_resultado_final);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mp = MediaPlayer.create(this, R.raw.somfinal);
         mp.start();
 
         placar = (ViewGroup) findViewById(R.id.container_placar);

@@ -23,7 +23,26 @@ import retrofit2.Retrofit;
 public class Aquecimento extends AppCompatActivity {
     AguardaJogoIniciar ag;
     private Button btn;
-    final MediaPlayer mp = MediaPlayer.create(this, R.raw.aquecimento);
+    MediaPlayer mp;
+
+
+
+    protected void onStop() {
+        super.onStop();
+        mp.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mp.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.stop();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +57,13 @@ public class Aquecimento extends AppCompatActivity {
                 ag.doInBackground();
             }
         });
+        mp = MediaPlayer.create(this, R.raw.aquecimento);
         mp.start();
 
+
     }
+
+
 
     public class AguardaJogoIniciar extends AsyncTask<Void, Void, String>
     {

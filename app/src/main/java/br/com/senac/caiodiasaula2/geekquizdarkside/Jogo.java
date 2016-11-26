@@ -2,6 +2,7 @@ package br.com.senac.caiodiasaula2.geekquizdarkside;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -45,6 +46,8 @@ public class Jogo extends AppCompatActivity {
         setContentView(R.layout.activity_jogo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicafundo);
+        mp.stop();
 
         final SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
         alternativas = (ViewGroup) findViewById(R.id.container_alternativas);
