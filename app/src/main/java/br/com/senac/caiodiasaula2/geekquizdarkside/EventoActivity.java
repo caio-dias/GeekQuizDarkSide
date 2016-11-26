@@ -36,7 +36,7 @@ public class EventoActivity extends AppCompatActivity {
     private Integer codUsuario;
     private EntraEvento ev;
 
-    MediaPlayer mp = new MediaPlayer();
+    final MediaPlayer mp = MediaPlayer.create(this, R.raw.musicafundo);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,9 @@ public class EventoActivity extends AppCompatActivity {
         qrcode = (TextView)findViewById(R.id.qrcode);
         evento = (EditText) findViewById(R.id.evento);
         btnEntrarEvento = (Button) findViewById(R.id.btnEntrarEvento);
-        mp.create(this, R.raw.musicafundo);
-        mp.setLooping(true);
+      //  mp.create(this, R.raw.musicafundo);
+       // mp.setLooping(true);
+        mp.start();
 
         qrcode.setOnClickListener(new View.OnClickListener() {
             @Override
