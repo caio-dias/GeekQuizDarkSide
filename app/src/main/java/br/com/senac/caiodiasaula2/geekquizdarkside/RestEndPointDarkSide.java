@@ -35,8 +35,13 @@ public interface RestEndPointDarkSide {
     Call<List<QuestoesEvento>>JsonAlternativa(@Path("codEvento") String codEvento);
 
     @GET("Perguntas/codEvento/{codEvento}/{codQuestao}")
-    Call<Questoes>JsonAlternativaQUESTOES(@Path("codEvento") String codEvento, @Path("codQuestao") String codQuestao);
+    Call<List<Questoes>>JsonAlternativaQUESTOES(@Path("codEvento") String codEvento, @Path("codQuestao") String codQuestao);
 
+    @GET("Perguntas/registra/{codQuestao}/{codAlternativa}/{codGrupo}/{tempo}/{textoResp}/{correta}")
+    Call<Void>InsereResposta(@Path("codQuestao") String codQuestao, @Path("codAlternativa") String codAlternativa,
+                             @Path("codGrupo") String codGrupo, @Path("tempo") String tempo,
+                             @Path("textoResp") String textoResp, @Path("correta") String correta
+                             );
 
 
 
