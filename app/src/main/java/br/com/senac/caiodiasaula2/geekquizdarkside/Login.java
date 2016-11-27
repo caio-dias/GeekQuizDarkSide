@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -43,13 +44,22 @@ public class Login extends AppCompatActivity  {
     public Button botaoLogin;
     public TextView Email;
     public TextView Senha;
+    private Toolbar mtoolbar;
+    private CoordinatorLayout coordinatorLayout;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mtoolbar);
+
         botaoLogin = (Button) findViewById(R.id.botaoLogin);
 
         botaoLogin.setOnClickListener(new View.OnClickListener() {
@@ -106,12 +116,10 @@ public class Login extends AppCompatActivity  {
                             startActivity(intent);
                             overridePendingTransition(R.anim.right_in, R.anim.left_out);
                         }else{
-                            Toast
-                                    .makeText(
-                                            Login.this,
-                                            "Nao foi possivel logar",
-                                            Toast.LENGTH_LONG)
-                                    .show();
+                            Snackbar snack = Snackbar.make(coordinatorLayout, "Não foi possível logar",
+                                  Snackbar.LENGTH_LONG  );
+
+                            snack.show();
 
                         }
                     }

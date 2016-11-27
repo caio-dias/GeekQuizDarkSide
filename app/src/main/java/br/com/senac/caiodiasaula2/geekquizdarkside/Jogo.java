@@ -1,5 +1,6 @@
 package br.com.senac.caiodiasaula2.geekquizdarkside;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,6 +34,7 @@ public class Jogo extends AppCompatActivity {
 
     private String[] ArrayQuestoes;
     private String CodEvento;
+    private Integer valorArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class Jogo extends AppCompatActivity {
         MediaPlayer mp = MediaPlayer.create(this, R.raw.musicafundo);
         mp.stop();
 
+        valorArray = 0;
         final SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
         alternativas = (ViewGroup) findViewById(R.id.container_alternativas);
 
@@ -49,10 +53,15 @@ public class Jogo extends AppCompatActivity {
         editorQuestoes = prefQuestoes.edit();
 
         prefArrayQuestoes = getSharedPreferences("ArrayQuestoes", MODE_PRIVATE);
-        editorArrayQuestoes = prefQuestoes.edit();
+        editorArrayQuestoes = prefArrayQuestoes.edit();
+
+        String SharedArray = prefArrayQuestoes.getString("valorArray", "0");
+        Integer arr = Integer.parseInt(SharedArray);
+
+        editorArrayQuestoes.putString("valorArray", arr.toString());
+        editorArrayQuestoes.apply();
 
         GetQuestoes gq = new GetQuestoes();
-
         gq.execute();
 
     }
@@ -65,6 +74,7 @@ public class Jogo extends AppCompatActivity {
         final TextView corretaTexto = (TextView) cardView.findViewById(R.id.correta);
         final TextView codAlternativa = (TextView) cardView.findViewById(R.id.codAlternativa);
         idPerguntaTexto.setText(idPergunta);
+        codAlternativa.setText(codigoAlternativa);
         corretaTexto.setText(correta);
         alternativa.setText(textoDaPergunta);
         alternativa.setOnClickListener(new View.OnClickListener() {
@@ -85,14 +95,13 @@ public class Jogo extends AppCompatActivity {
                 ins.setCodGrupo(codGrupo);
                 ins.setCodQuestao(codAlternativa.getText().toString());
                 ins.setCorreta(corretaTexto.getText().toString());
-                ins.setTempo("00:24");
+
+                Date currentDate = new Date();
+
+                ins.setTempo(currentDate.toString());
                 ins.setTextoResp(alternativa.getText().toString());
 
-                //ins.doInBackground();
-
-
-
-
+                ins.doInBackground();
 
             }
         });
@@ -102,13 +111,18 @@ public class Jogo extends AppCompatActivity {
     }
 
     private void RequestQuestoes(){
-        int teste;
-
-        teste = 0;
-
-        GetQuestoesPerguntas getQ = new GetQuestoesPerguntas();
-        getQ.doInBackground();
-
+        String SharedArray = prefArrayQuestoes.getString("valorArray", "0");
+        Integer arr = Integer.parseInt(SharedArray);
+        if(arr < 5) {
+            GetQuestoesPerguntas getQ = new GetQuestoesPerguntas();
+            getQ.doInBackground();
+            arr++;
+            editorArrayQuestoes.putString("valorArray", arr.toString() );
+            editorArrayQuestoes.apply();
+        }else{
+            editorArrayQuestoes.clear();
+            editorArrayQuestoes.apply();
+        }
     }
 
     private void MontaCards(){
@@ -218,12 +232,16 @@ public class Jogo extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
 
+            String SharedArray = prefArrayQuestoes.getString("valorArray", "0");
+            Integer arr = Integer.parseInt(SharedArray);
+
             SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
             final String CodEvento = pref.getString("codEvento", "");
 
             Retrofit retrofit = Rest.getInstance().get();
             final RestEndPointDarkSide service = retrofit.create(RestEndPointDarkSide.class);
-            String Opcao = "1";
+            String Opcao = ArrayQuestoes[arr].toString();
+            valorArray++;
             final Call<List<Questoes>> callDaQuestoes = service.JsonAlternativaQUESTOES(CodEvento, Opcao);
 
             callDaQuestoes.enqueue(new Callback<List<Questoes>>() {
@@ -273,13 +291,14 @@ public class Jogo extends AppCompatActivity {
             Retrofit retrofit = Rest.getInstance().get();
             final RestEndPointDarkSide service = retrofit.create(RestEndPointDarkSide.class);
             final Call<Void> callDa = service.InsereResposta(getCodQuestao(), getCodAlternativa(),
-                    getCodGrupo(), getTempo(), getTextoResp(), getCorreta());
+                    getCodGrupo(), getTextoResp(), getCorreta());
             callDa.enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
-                        String Resp = response.body().toString();
-                        RequestQuestoes();
+                        Intent intent = new Intent(Jogo.this, Jogo.class);
+                        startActivity(intent);
+                        //RequestQuestoes();
                     } else {
                         Toast
                                 .makeText(

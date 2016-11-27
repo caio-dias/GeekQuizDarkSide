@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -35,7 +36,11 @@ public class EventoActivity extends AppCompatActivity {
     private TextView CodEvento;
     private Integer codUsuario;
     private EntraEvento ev;
-    MediaPlayer mp;
+    private Toolbar mtoolbar;
+    private CoordinatorLayout coordinatorLayout;
+    private FloatingActionButton fab;
+    MediaPlayer mp = new MediaPlayer();
+
 
     @Override
     protected void onStop() {
@@ -59,11 +64,16 @@ public class EventoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         qrcode = (TextView)findViewById(R.id.qrcode);
         evento = (EditText) findViewById(R.id.evento);
         btnEntrarEvento = (Button) findViewById(R.id.btnEntrarEvento);
+
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mtoolbar);
 
         mp = MediaPlayer.create(this, R.raw.musicafundo);
         mp.start();
@@ -197,12 +207,11 @@ public class EventoActivity extends AppCompatActivity {
                             startActivity(i);
                             overridePendingTransition(R.anim.right_in, R.anim.left_out);
                         }else{
-                            Toast
-                                    .makeText(
-                                            EventoActivity.this,
-                                            "Nao foi  possível encontrar este evento " + idEvento.toString(),
-                                            Toast.LENGTH_LONG)
-                                    .show();
+
+                            Snackbar snack = Snackbar.make(coordinatorLayout, "Nao foi  possível encontrar este evento " + idEvento.toString(),
+                                    Snackbar.LENGTH_LONG  );
+
+                            snack.show();
 
                         }
                     }
