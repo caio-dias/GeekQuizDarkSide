@@ -40,6 +40,9 @@ public class EventoActivity extends AppCompatActivity {
     private CoordinatorLayout coordinatorLayout;
     private FloatingActionButton fab;
     MediaPlayer mp = new MediaPlayer();
+    private SharedPreferences prefArrayQuestoes;
+    private SharedPreferences.Editor editorArrayQuestoes;
+
 
 
     @Override
@@ -203,12 +206,18 @@ public class EventoActivity extends AppCompatActivity {
                             editor.putString("codEvento", us.getIdEvento().toString());
                             editor.apply();
 
+                            prefArrayQuestoes = getSharedPreferences("ArrayQuestoes", MODE_PRIVATE);
+                            editorArrayQuestoes = prefArrayQuestoes.edit();
+
+                            editorArrayQuestoes.putString("valorArray", "0");
+                            editorArrayQuestoes.apply();
+
                             i.putExtras(b); //Put your id to your next Intent
                             startActivity(i);
                             overridePendingTransition(R.anim.right_in, R.anim.left_out);
                         }else{
 
-                            Snackbar snack = Snackbar.make(coordinatorLayout, "Nao foi  possível encontrar este evento " + idEvento.toString(),
+                            Snackbar snack = Snackbar.make(coordinatorLayout, "Nao foi  possível encontrar este evento " + idEvento.toString() + " ou ele não compatível com este aplicativo (GeekQuiz).",
                                     Snackbar.LENGTH_LONG  );
 
                             snack.show();

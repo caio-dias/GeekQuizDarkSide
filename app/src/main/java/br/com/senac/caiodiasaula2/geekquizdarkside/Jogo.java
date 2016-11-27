@@ -1,11 +1,15 @@
 package br.com.senac.caiodiasaula2.geekquizdarkside;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -36,14 +40,29 @@ public class Jogo extends AppCompatActivity {
     private String CodEvento;
     private Integer valorArray;
 
+    private Toolbar mtoolbar;
+    private CoordinatorLayout coordinatorLayout;
+    private FloatingActionButton fab;
+
+    MediaPlayer mp = new MediaPlayer();
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        editorArrayQuestoes.clear();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicafundo);
-        mp.stop();
+
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mtoolbar);
 
         valorArray = 0;
         final SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
@@ -67,7 +86,7 @@ public class Jogo extends AppCompatActivity {
     }
 
     private void addItem(String textoDaPergunta, final String idPergunta, String correta,
-                         String codigoAlternativa) {
+                         final String codigoAlternativa) {
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.card_message, alternativas, false);
         final TextView alternativa = (TextView) cardView.findViewById(R.id.alternativa);
         final TextView idPerguntaTexto = (TextView) cardView.findViewById(R.id.idAlternativa);
@@ -80,25 +99,34 @@ public class Jogo extends AppCompatActivity {
         alternativa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast
-                        .makeText(
-                                Jogo.this,
-                                "Voce Clicou " + corretaTexto.getText().toString(),
-                                Toast.LENGTH_LONG)
-                        .show();
 
-                SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
-                final String CodEvento = pref.getString("codEvento", "");
-                String codGrupo = "174";
+                Integer Analise = Integer.parseInt(corretaTexto.getText().toString().trim());
+
+                if(Analise  == 1)
+                {
+                    mp = MediaPlayer.create(Jogo.this, R.raw.acertou);
+                    mp.start();
+
+                    Snackbar snack = Snackbar.make(coordinatorLayout, "Parece que voce está indo muito bem :) estamos preparando a próxima.",
+                            Snackbar.LENGTH_LONG  );
+
+                    snack.show();
+                }else{
+                    Snackbar snack = Snackbar.make(coordinatorLayout, "Preferimos não comentar sobre sua resposta :P",
+                            Snackbar.LENGTH_LONG  );
+                    snack.show();
+
+                    mp = MediaPlayer.create(Jogo.this, R.raw.errou);
+                    mp.start();
+                }
+
+
                 InsereResposta ins = new InsereResposta();
-                ins.setCodAlternativa(idPerguntaTexto.getText().toString());
-                ins.setCodGrupo(codGrupo);
-                ins.setCodQuestao(codAlternativa.getText().toString());
+                ins.setCodAlternativa(codAlternativa.getText().toString());
+                //ins.setCodGrupo(codGrupo);
+                ins.setCodQuestao(idPerguntaTexto.getText().toString());
                 ins.setCorreta(corretaTexto.getText().toString());
 
-                Date currentDate = new Date();
-
-                ins.setTempo(currentDate.toString());
                 ins.setTextoResp(alternativa.getText().toString());
 
                 ins.doInBackground();
@@ -113,15 +141,19 @@ public class Jogo extends AppCompatActivity {
     private void RequestQuestoes(){
         String SharedArray = prefArrayQuestoes.getString("valorArray", "0");
         Integer arr = Integer.parseInt(SharedArray);
-        if(arr < 5) {
+        if(arr < ArrayQuestoes.length) {
             GetQuestoesPerguntas getQ = new GetQuestoesPerguntas();
             getQ.doInBackground();
             arr++;
             editorArrayQuestoes.putString("valorArray", arr.toString() );
             editorArrayQuestoes.apply();
         }else{
-            editorArrayQuestoes.clear();
+            editorArrayQuestoes.putString("valorArray", "0");
             editorArrayQuestoes.apply();
+
+            Intent intent = new Intent(Jogo.this, ResultadoFinal.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
     }
 
@@ -240,8 +272,18 @@ public class Jogo extends AppCompatActivity {
 
             Retrofit retrofit = Rest.getInstance().get();
             final RestEndPointDarkSide service = retrofit.create(RestEndPointDarkSide.class);
-            String Opcao = ArrayQuestoes[arr].toString();
-            valorArray++;
+            String Opcao = "0";
+            try{
+                Opcao = ArrayQuestoes[arr].toString();
+                valorArray++;
+            }catch (Exception e){
+                editorArrayQuestoes.putString("valorArray", "0");
+                editorArrayQuestoes.apply();
+
+                Intent intent = new Intent(Jogo.this, ResultadoFinal.class);
+                startActivity(intent);
+            }
+
             final Call<List<Questoes>> callDaQuestoes = service.JsonAlternativaQUESTOES(CodEvento, Opcao);
 
             callDaQuestoes.enqueue(new Callback<List<Questoes>>() {
@@ -282,43 +324,92 @@ public class Jogo extends AppCompatActivity {
         private String textoResp;
         private String correta;
 
+        private ProgressDialog pdia;
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pdia = new ProgressDialog(Jogo.this);
+            pdia.setMessage("Salvando sua resposta e criando nova pergunta :)");
+            pdia.show();
+        }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
             try{
+                SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+                final String CodEvento = pref.getString("codEvento", "");
+
+                pref = getSharedPreferences("info", MODE_PRIVATE);
+                String codParticipante = pref.getString("codParticipante", "");
+
+
+                String codGrupo = "174";
+
             Retrofit retrofit = Rest.getInstance().get();
             final RestEndPointDarkSide service = retrofit.create(RestEndPointDarkSide.class);
-            final Call<Void> callDa = service.InsereResposta(getCodQuestao(), getCodAlternativa(),
-                    getCodGrupo(), getTextoResp(), getCorreta());
-            callDa.enqueue(new Callback<Void>() {
+            final Call<List<Grupo>> callGrupo = service.GetGrupo(CodEvento, codParticipante);
+
+            callGrupo.enqueue(new Callback<List<Grupo>>() {
                 @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    if (response.isSuccessful()) {
-                        Intent intent = new Intent(Jogo.this, Jogo.class);
-                        startActivity(intent);
-                        //RequestQuestoes();
-                    } else {
-                        Toast
-                                .makeText(
-                                        Jogo.this,
-                                        "Nao foi possivel criar as perguntas",
-                                        Toast.LENGTH_LONG)
-                                .show();
+                public void onResponse(Call<List<Grupo>> call, Response<List<Grupo>> response) {
+                    if(response.isSuccessful())
+                    {
+                        List<Grupo> grupo = response.body();
+
+                        for(int i =0; i < grupo.size(); i++){
+                            final Call<Void> callDa = service.InsereResposta(getCodQuestao(), getCodAlternativa(),
+                                    grupo.get(i).getCodgrupo(), getTextoResp(), getCorreta());
+                            callDa.enqueue(new Callback<Void>() {
+                                @Override
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+                                    if (response.isSuccessful()) {
+                                        Intent intent = new Intent(Jogo.this, Jogo.class);
+                                        startActivity(intent);
+                                        //RequestQuestoes();
+                                    } else {
+                                        Toast
+                                                .makeText(
+                                                        Jogo.this,
+                                                        "Nao foi possivel criar as perguntas",
+                                                        Toast.LENGTH_LONG)
+                                                .show();
+                                    }
+                                }
+                                @Override
+                                public void onFailure(Call<Void> call, Throwable t) {
+                                    Log.d("hh","k");
+                                }
+                            });
+                        }
+
+
                     }
                 }
+
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Log.d("hh","k");
+                public void onFailure(Call<List<Grupo>> call, Throwable t) {
+                    Log.d("k","h");
+
                 }
             });
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
         return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            pdia.dismiss();
         }
 
         public String getCodQuestao() {
