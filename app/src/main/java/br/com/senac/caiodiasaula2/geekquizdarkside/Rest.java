@@ -20,9 +20,9 @@ public class Rest {
     private Retrofit retrofit;
     public static Rest getInstance() { return instance; };
 
-    //public static final String BASE_URL = "http://tsitomcat2.azurewebsites.net/geekquiz2/rest/";
+    public static final String BASE_URL = "http://tsitomcat2.azurewebsites.net/geekquiz2/rest/";
 
-    public static final String BASE_URL = "http://192.168.0.11:8080/pi/rest/";
+    //public static final String BASE_URL = "http://192.168.0.11:8080/pi/rest/";
 
     public Rest(){
 
