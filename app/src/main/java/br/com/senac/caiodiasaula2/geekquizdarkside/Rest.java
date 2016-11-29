@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by joaopaulo on 03/11/16.
  */
 
-public class Rest {
+public class  Rest {
 
     private static Rest instance = new Rest();
     private Retrofit retrofit;
